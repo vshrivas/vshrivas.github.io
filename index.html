@@ -124,18 +124,84 @@
           <h3 style="margin-top: 0em">Recent Projects</h3>
             
           <hr style="margin-top: 0em; width: 100%; color: black; height: 1px; background-color:black;" />
-          Coming soon!
-            <!--<h4 id="dataless">Personalizing Language Models </h4>
+            <h4 id="dataless">Personalizing Language Models </h4>
             <ul>
               Personalization is an important area for improving user experiences with language models, by learning about user preferences and tailoring model outputs accordingly.
-              In the case of user-personalization, each user can be treated as a 'downstream task' for our language model. Finetuning large Transformer-based language models is currently
+              In the case of user-personalization, each user can be treated as a separate 'downstream task' for our language model. Fine-tuning large Transformer-based language models is currently
               the most popular technique for adapting these models to downstream tasks. But, given the massive number of users in our scenarios, fully fine-tuning separate models for each
-              user would be infeasible. Thus my work explores light-weight fine-tuning techniques for these language models, to adapt them to user-specific behavior.
+              user would be infeasible, both in terms of training time and inferencing latencies. Thus my work explores light-weight fine-tuning techniques for these language models, to adapt them to user-specific behavior.
             </br>
           </br>
-            </br>-->
 
-        </div>
+            <u><h4 id="one-shot">Prefix-Tuning with User Signals</u> <i><span style="font-weight:normal;margin-left:0.25em;font-size: 15px">(July 2021 - Present)</span></i><span style="margin-left:0.50em;font-size: 15px"> </h4>
+              Large language models can store a great deal of information within their parameters, and as recently demonstrated by zero-shot and few-shot learning in models like GPT-3,
+              prompts can be used to induce particular model behavior. Prompt engineering was the strategy of crafting these prompts to trigger task-specific behavior by more overtly communicating the
+              task with the model. </br></br>
+              Prefix-tuning has recently emerged as a means of finding more optimal prompts over a continuous space to condition the model at the embedding or activation levels. Conditioning
+              models at the embedding layer would entail generating associated keys and values from the model and then passing these in as past key values alongside inputs, to condition model outputs.
+              Meanwhile, prefix-tuning at the activation stage would allow for more fine-grained control over personalization by directly generating key value activations, instead of allowing the model
+              to generate them through embeddings. Optimizing over this large space of key value activations could allow us to find more optimal ways of conditioning the model for specific tasks.
+              In the context of user-personalization, users are the tasks we wish to optimize for. 
+              </br></br>
+              <ul>
+                <li>
+                  Adapting prefix-tuning to the task of user-personalization, we train user-specific prompts to induce personalized response generation from a GPT-2 based model, at the embedding and activation levels.
+                </li>
+                <li>
+                  To allow this model to personalize responses for users not in the training set, we further ground this model in user language signals. 
+                </li>
+                <li>
+                  N-gram signals from user mailboxes are used to generate embeddings jointly trained with the GPT-2 to condition personalized responses for users not seen in the training set.
+                </li>
+                <li>
+                  Next we will be training this model with differentially private algorithms such as differentially private stochastic gradient descent (DP-SGD) to preserve user-privacy.
+                </li>
+              </ul>
+
+            </br>
+            <u><h4 id="one-shot">Fixed Prompts for Implicit Personalized User Representations</u> <i><span style="font-weight:normal;margin-left:0.25em;font-size: 15px">(July 2021 - September 2021)</span></i><span style="margin-left:0.50em;font-size: 15px"> </h4>
+              Training and updating embeddings for millions of users can still be incredibly expensive, especially given data refreshes to personalize content based on a user's current writing style.
+              Thus a natural next question to explore was if instead of learning per-user embeddings, we could simply use fixed prompts to retrieve user-specific information from within a model. </br></br>
+              <ul>
+                <li>
+                  Recently prompting of models like GPT-3 has led to impressive results in zero-shot and few-shot settings. In a similar vein, we explored appending fixed sequences called 
+                  user-identifiers to model inputs to prompt the model to produce personalized, user-specific outputs.
+                </li>
+                <li>
+                  We also conducted a series of ablation experiments, investigating the types of fixed prompts that would be most performant, including the length of these prompts and the distribution
+                  the prompt tokens are drawn from.
+                </li>
+                <li>
+                  Demonstrated up to 13% improvement over prefix-tuning based SOTA on a suite of sentiment analysis tasks.
+                </li>
+              </ul>
+
+
+            </br>
+            <u><h4 id="one-shot">Low-Rank Adaptation of Large Language Models</u> <i><span style="font-weight:normal;margin-left:0.25em;font-size: 15px">(November 2021 - Present)</span></i><span style="margin-left:0.50em;font-size: 15px"> </h4>
+              Recent works show that large language models exist on a low intrinsic dimension. The work on Low-Rank Adaptation of Large Language Models (LoRA) extends this argument to propose that even
+              the weight updates to these models may exist in a low-rank dimension. Therefore the LoRA technique freezes the parameters of pre-trained models and represents the weight updates to these parameters with a
+              product BA, where B has dimensions d x r and A has dimensions r x k, where r is the low-rank dimension. </br></br>
+              While other parameter-efficient tuning techniques exist, such as the prefix-tuning method mentioned above and adding adapter layers, these methods come with their own issues. 
+              Adapter layers can increase online inferencing latencies, while prefix-tuning consumes a portion of the sequence length available to downstream tasks. </br></br>
+              In our case, we adapt LoRA to the scenario of user-personalization. 
+              <ul>
+                <li>
+                  LoRA is used to enable more fine-grained control of personalization, by directly personalizing the weight updates to key, query, value attention matrices within the GPT-2 model.
+                </li>
+                <li>
+                  We project user-specific embeddings into the space of rank-decomposed weight updates to attention matrices which then augment the frozen parameters of the pre-trained model.
+                </li>
+              </ul>
+   
+            </ul>
+          </br>
+          <!--<h4 id="dataless"> Compressing Transformer-based Language Models </h4>
+
+
+          <h4 id="dataless"> Contextualization </h4>
+          <h4 id="dataless"> Abstractive Summarization </h4>-->
+          </div>
 
 </br>
 
