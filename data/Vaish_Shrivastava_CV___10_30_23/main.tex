@@ -1,0 +1,188 @@
+% Build from this directory with: make
+% Visual reference: https://shashankgupta.info/data/ShashankGupta-CV.pdf
+% Employment layout: https://unnat.github.io/resume.pdf
+% Employment dates supplied by the owner; publication sources are in README.md.
+\documentclass[margin,line]{templates/resume}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\hypersetup{
+  pdftitle={Vaishnavi Shrivastava -- Curriculum Vitae},
+  pdfauthor={Vaishnavi Shrivastava},
+  pdfsubject={Education, experience, publications, and research}
+}
+
+% Retain the reference's Computer Modern typography and 1.1-inch label column.
+% The legacy class's 275 mm text height extends beyond US Letter paper.
+\setlength{\topmargin}{-12mm}
+\setlength{\textheight}{252mm}
+\setlength{\parskip}{4pt}
+\setlength{\sectionskip}{12pt}
+\renewcommand{\sectionfont}{\normalfont\small\scshape}
+\raggedbottom
+\setlength{\emergencystretch}{1em}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\setlist[itemize]{
+  leftmargin=14pt, labelsep=5pt,
+  topsep=2pt, partopsep=0pt, parsep=0pt, itemsep=5pt
+}
+\renewcommand{\dates}[1]{\hfill\mbox{\small\itshape #1}}
+\definecolor{contactunderline}{gray}{0.6}
+\newcommand{\contactlink}[2]{\href{#1}{\textcolor{contactunderline}{\uline{\textcolor{black}{#2}}}}}
+% ulem permits underlined titles to wrap within the column.
+\newcommand{\linkedpapertitle}[2]{\href{#1}{\uline{#2}}}
+\newcommand{\papertitle}[2]{\linkedpapertitle{https://arxiv.org/abs/#1}{#2}}
+\newcounter{publication}
+\newenvironment{publication}{%
+  \addtocounter{publication}{-1}%
+  \noindent
+  \begin{minipage}[t]{\linewidth}
+  \raggedright
+  \begin{list}{\ifdefined\unnumberedpublications\else\arabic{publication}.\fi}{%
+    \ifdefined\unnumberedpublications
+      \setlength{\leftmargin}{0pt}%
+      \setlength{\labelwidth}{0pt}%
+      \setlength{\labelsep}{0pt}%
+    \else
+      \setlength{\leftmargin}{10pt}%
+      \setlength{\labelwidth}{16pt}%
+      \setlength{\labelsep}{5pt}%
+    \fi
+    \setlength{\topsep}{0pt}%
+    \setlength{\parsep}{0pt}%
+  }\item\relax
+}{\end{list}\end{minipage}\par\addvspace{6pt}}
+
+\begin{document}
+\name{\huge Vaishnavi Shrivastava}
+\begin{resume}
+
+\section{Contact}
+\contactlink{mailto:vaish.shrivastava@gmail.com}{vaish.shrivastava@gmail.com} \textperiodcentered{} \contactlink{https://vshrivas.github.io/}{vshrivas.github.io} \textperiodcentered{} \contactlink{https://scholar.google.com/citations?user=N0nX2VsAAAAJ&hl=en}{Google Scholar} \textperiodcentered{} \contactlink{https://www.linkedin.com/in/vaish-shrivastava/}{LinkedIn}
+
+\section{Education}
+\textbf{\href{https://cs.stanford.edu/}{Stanford University}}\dates{2022--2024}\\
+\hspace*{10pt}Master of Science, Computer Science\hfill 3.9/4.0\\
+\hspace*{10pt}Advisor: \href{https://cs.stanford.edu/~pliang/}{Percy Liang}
+
+\vspace{3pt}
+\textbf{\href{https://www.cms.caltech.edu/}{California Institute of Technology (Caltech)}}\dates{2015--2019}\\
+\hspace*{10pt}Bachelor of Science, Computer Science\hfill 3.9/4.0
+
+\section{Employment}
+\begin{itemize}
+  \item \href{https://www.microsoft.com/en-us/research/}{\textsf{\textbf{Microsoft Research}}}, Redmond, WA -- \textsf{\textbf{Senior Researcher}}\dates{Sep'24 -- Present}\\
+    {\small\textit{Reinforcement learning \textperiodcentered{} computer-use agents \textperiodcentered{} reasoning}}
+  \item \href{https://cs.stanford.edu/}{\textsf{\textbf{Stanford University}}}, Stanford, CA -- Research Assistant\dates{Sep'22 -- Jun'24}\\
+    Advisor: \href{https://cs.stanford.edu/~pliang/}{Percy Liang}\\
+    {\small\textit{LLM calibration \textperiodcentered{} self-play}}
+  \item \href{https://allenai.org/}{\textsf{\textbf{Allen Institute for AI}}}, Seattle, WA -- Research Assistant\dates{Jun'23 -- Dec'23}\\
+    Advisor: \href{https://allenai.org/team/tushark}{Tushar Khot}\\
+    {\small\textit{Reasoning \textperiodcentered{} LLM safety}}
+  \item \href{https://www.microsoft.com/en-us/research/group/msai/}{\textsf{\textbf{Microsoft AI}}}, Bellevue, WA -- Applied Scientist\dates{Sep'19 -- Aug'22}\\
+    {\small\textit{Efficient LLMs \textperiodcentered{} personalization}}
+  \item \textsf{\textbf{Software Engineering Internships}} -- Microsoft, Dell EMC\dates{2016--2018}
+\end{itemize}
+
+\setcounter{publication}{8}
+\section{Peer-Reviewed\\Publications}
+
+\begin{publication}
+  \papertitle{2605.24517}{ECHO: Terminal Agents Learn World Models for Free.}\\
+  \textbf{V. Shrivastava}, P. Kauffmann, A. Awadallah, D. Papailiopoulos. 2026.\\
+  \textit{Conference on Neural Information Processing Systems \textbf{(NeurIPS)}, 2026 -- Spotlight}
+\end{publication}
+
+\begin{publication}
+  \linkedpapertitle{https://openreview.net/forum?id=oZWE7mSqlk}{Wait, Wait, Wait... Why Do Reasoning Models Loop?}\\
+  C. Pipis, S. Garg, V. Kontonis, \textbf{V. Shrivastava}, A. Krishnamurthy, D. Papailiopoulos. 2025.\\
+  \textit{International Conference on Machine Learning \textbf{(ICML)}, 2026 -- Spotlight}
+\end{publication}
+
+\begin{publication}
+  \linkedpapertitle{https://proceedings.iclr.cc/paper_files/paper/2026/hash/a00ef870c140f09263ba2288855be50b-Abstract-Conference.html}{Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning.}\\
+  \textbf{V. Shrivastava}, A. H. Awadallah, V. Balachandran, S. Garg, H. Behl, D. Papailiopoulos. 2025.\\
+  \textit{International Conference on Learning Representations \textbf{(ICLR)}, 2026}
+\end{publication}
+
+\begin{publication}
+  \linkedpapertitle{https://proceedings.iclr.cc/paper_files/paper/2024/hash/bfcb583d225b1db8d3ca2331f6785774-Abstract-Conference.html}{Benchmarking and Improving Generator-Validator Consistency of Language Models.}\\
+  X. Lisa Li, \textbf{V. Shrivastava}, S. Li, T. Hashimoto, P. Liang. 2023.\\
+  \textit{International Conference on Learning Representations \textbf{(ICLR)}, 2024}
+\end{publication}
+
+\begin{publication}
+  \linkedpapertitle{https://proceedings.iclr.cc/paper_files/paper/2024/hash/5e1a87dbb7e954b8d9d6c91f6db771eb-Abstract-Conference.html}{Bias Runs Deep: Implicit Reasoning Biases in Persona-Assigned LLMs.}\\
+  S. Gupta, \textbf{V. Shrivastava}, A. Deshpande, A. Kalyan, P. Clark, A. Sabharwal, T. Khot. 2023.\\
+  \textit{International Conference on Learning Representations \textbf{(ICLR)}, 2024}
+\end{publication}
+
+\begin{publication}
+  \linkedpapertitle{https://aclanthology.org/2022.naacl-main.252/}{UserIdentifier: Implicit User Representations for Simple and Effective Personalized \mbox{Sentiment Analysis.}}\\
+  F. Mireshghallah, \textbf{V. Shrivastava}, M. Shokouhi, T. Berg-Kirkpatrick, R. Sim, \mbox{D. Dimitriadis. 2021.}\\
+  \textit{North American Chapter of the Association for Computational Linguistics \textbf{(NAACL)}, 2022}\\
+  \textit{U.S. Patent 12,182,511, granted 2024}
+\end{publication}
+
+\begin{publication}
+  \linkedpapertitle{https://openreview.net/forum?id=BYmprj67tk}{Not All Thoughts Matter: Selective Attention for Efficient Reasoning.}\\
+  H. Tang, G. Zheng, K. Gandhi, H. Behl, \textbf{V. Shrivastava}, M. Javaheripi, K. Ellis, S. Garg, D.~Papailiopoulos. 2025.\\
+  \textit{NeurIPS Workshop on Efficient Reasoning, 2025}
+\end{publication}
+
+\setcounter{publication}{6}
+\section{Preprints \&\\Technical\\Reports}
+
+\begin{publication}
+  \papertitle{2606.13862}{SuperThoughts: Reasoning Tokens in Superposition.}\\
+  Z. Xiong, S. Garg, M. Yu, \textbf{V. Shrivastava}, H. Zhao, A. Kyrillidis, D. Papailiopoulos. 2026.\\
+  \textit{arXiv preprint, 2026}
+\end{publication}
+
+\begin{publication}
+  \papertitle{2504.21318}{Phi-4-reasoning Technical Report.}\\
+  M. Abdin, S. Agarwal, A. Awadallah, V. Balachandran, H. Behl, L. Chen, G. de Rosa, S.~Gunasekar, M. Javaheripi, N. Joshi, P. Kauffmann, Y. Lara, C. C. T. Mendes, A. Mitra, B. Nushi, D.~Papailiopoulos, O. Saarikivi, S. Shah, \textbf{V. Shrivastava}, V. Vineet, Y. Wu, S. Yousefi, \mbox{G. Zheng. 2025.}\\
+  {\small\textit{Authors listed alphabetically by last name.}}\\
+  \textit{arXiv preprint, 2025}
+\end{publication}
+
+\begin{publication}
+  \papertitle{2502.01126}{Language Models Prefer What They Know: Relative Confidence Estimation via Confidence Preferences.}\\
+  \textbf{V. Shrivastava}, A. Kumar, P. Liang. 2025.\\
+  \textit{arXiv preprint, 2025}
+\end{publication}
+
+\begin{publication}
+  \papertitle{2311.08877}{Llamas Know What GPTs Don't Show: Surrogate Models for Confidence Estimation.}\\
+  \textbf{V. Shrivastava}, P. Liang, A. Kumar. 2023.\\
+  \textit{arXiv preprint, 2023}
+\end{publication}
+
+\begin{publication}
+  \papertitle{2111.13999}{Exploring Low-Cost Transformer Model Compression for Large-Scale \mbox{Commercial Reply Suggestions.}}\\
+  \textbf{V. Shrivastava*}, R. Gaonkar*, S. Gupta*, A. Jha. 2021.\\
+  {*Equal Contribution}\\
+  \textit{Microsoft Journal of Applied Research, 2021}
+\end{publication}
+
+\section{Teaching\\Experience}
+\textsf{\textbf{Teaching Assistant:}}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Caltech}: \href{http://www.yisongyue.com/courses/cs155/2019_winter/}{Machine Learning \& Data Mining, CS 155}\dates{Jan'19 -- Mar'19}
+  \item \textbf{Caltech}: \href{https://catalog.caltech.edu/current/courses/department/CS}{Database System Implementation, CS 122}\dates{Jan'18 -- Mar'18}
+\end{itemize}
+
+\section{References}
+\href{mailto:dimitriosp@microsoft.com}{\textsf{\textbf{Dimitris Papailiopoulos}}}, \textit{Research Manager, Microsoft; Associate Professor, University of Wisconsin}\\
+\href{mailto:ahmed.awadallah@microsoft.com}{\textsf{\textbf{Ahmed Awadallah}}}, \textit{Partner Research Manager, Microsoft}\\
+\href{mailto:pliang@cs.stanford.edu}{\textsf{\textbf{Percy Liang}}}, \textit{Associate Professor, Stanford University}\\
+\href{mailto:shokouhi@gmail.com}{\textsf{\textbf{Milad Shokouhi}}}, \textit{Distinguished Engineer, LinkedIn}
+
+\end{resume}
+\end{document}

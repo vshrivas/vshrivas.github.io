@@ -1,0 +1,51 @@
+[
+  {
+    "file": "echo.png",
+    "source": "https://arxiv.org/html/2605.24517v1/figures/intro_fig_final4.png",
+    "paper": "https://arxiv.org/abs/2605.24517",
+    "bytes": 204483
+  },
+  {
+    "file": "reasoning-loops.svg",
+    "source": "https://arxiv.org/html/2512.12895v2/openthinker_looping_2025-2024_threshR20_I10.svg",
+    "paper": "https://arxiv.org/abs/2512.12895",
+    "bytes": 38669
+  },
+  {
+    "file": "gfpo.svg",
+    "source": "https://arxiv.org/html/2508.09726v1/gfpo_final.svg",
+    "paper": "https://arxiv.org/abs/2508.09726",
+    "bytes": 96238
+  },
+  {
+    "file": "superthoughts.png",
+    "source": "https://arxiv.org/html/2606.13862v1/SuperThoughtsOverview.png",
+    "paper": "https://arxiv.org/abs/2606.13862",
+    "bytes": 58911
+  },
+  {
+    "file": "phi4-reasoning.svg",
+    "source": "https://arxiv.org/html/2504.21318v1/model_comparison.svg",
+    "paper": "https://arxiv.org/abs/2504.21318",
+    "bytes": 71836
+  },
+  {
+    "file": "relative-confidence.png",
+    "source": "https://arxiv.org/html/2502.01126v1/sections/figures/intro_fig.png",
+    "paper": "https://arxiv.org/abs/2502.01126",
+    "bytes": 274549
+  },
+  {
+    "file": "selective-attention.png",
+    "source": "https://haotang1995.github.io/files/RollingWindowReasoner.pdf",
+    "paper": "https://openreview.net/forum?id=BYmprj67tk",
+    "figure": 1,
+    "page": 2,
+    "rendered_clip": [
+      70.0,
+      58.0,
+      542.0,
+      212.09829711914062
+    ]
+  }
+]
